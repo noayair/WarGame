@@ -1,12 +1,10 @@
 #include "SniperCommander.hpp"
 #include "Soldier.hpp"
 using namespace WarGame;
-   SniperCommander:: SniperCommander (int p){
-       
-       }
-    void SniperCommander:: shoot(Soldier s){
+
+   //  void SniperCommander:: shoot(Soldier s){
         
-    }
-    void SniperCommander:: act(Soldier s){
+   //  }
+    void SniperCommander:: act(pair<int,int> l, std::vector<std::vector<Soldier*>>& board){
 
   }

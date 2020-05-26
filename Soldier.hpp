@@ -1,5 +1,8 @@
 #pragma once
-#include "Board.hpp"
+#include <string>
+#include <vector>
+#include <stdexcept>
+// #include "Board.hpp"
 using namespace std;
 namespace WarGame {
 class Soldier {

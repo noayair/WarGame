@@ -22,11 +22,11 @@ using namespace WarGame;
             {
                if(board[i][j]->tag == "Foot")
                {
-                  board[i][j]->healthPoints == 100;
+                  board[i][j]->healthPoints = 100;
                }
                if(board[i][j]->tag == "FootCommandor")
                {
-                  board[i][j]->healthPoints == 150;
+                  board[i][j]->healthPoints = 150;
                }
                if(board[i][j]->tag == "Sniper")
                {
@@ -34,15 +34,15 @@ using namespace WarGame;
                }
                if(board[i][j]->tag == "SniperCommandor")
                {
-                  board[i][j]->healthPoints == 120;
+                  board[i][j]->healthPoints = 120;
                }
                if(board[i][j]->tag == "Paramedic")
                {
-                  board[i][j]->healthPoints == 100;
+                  board[i][j]->healthPoints = 100;
                }
                if(board[i][j]->tag == "ParamedicCommandor")
                {
-                  board[i][j]->healthPoints == 200;
+                  board[i][j]->healthPoints = 200;
                }
             }
          }
