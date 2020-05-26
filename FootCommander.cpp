@@ -6,21 +6,31 @@
    //  }
    void FootCommander:: act(pair<int,int> l, std::vector<std::vector<Soldier*>>& board)
    {
-      // int to_shoot;
-      // if(board[l.first][l.second]->player == 1)
-      // {
-      //    to_shoot = 2;
-      // }else{
-      //    to_shoot = 1;
-      // }
-      // for(int i = 0; i < board.size(); i++)
-      // {
-      //    for(int j = 0; j < board[i].size(); j++)
-      //    {
-      //       if(board[i][j] != NULL && board[i][j]->player != to_shoot)
-      //       {
-      //          FootSoldier:: act(l , board);
-      //       }
-      //    }
-      // }
+      FootSoldier:: act(l , board);
+      actAll(l, board);
+   }
+
+   void FootCommander:: actAll(pair<int,int> l, std::vector<std::vector<Soldier*>>& board)
+   {
+      int to_shoot;
+      if(board[l.first][l.second] != nullptr && board[l.first][l.second]->getP() == 1)
+      {
+         to_shoot = 2;
+      }else{
+         to_shoot = 1;
+      }
+      for(int i = 0; i < board.size(); i++)
+      {
+         for(int j = 0; j < board[i].size(); j++)
+         {
+            Soldier* temp = board[i][j];
+            if(temp != NULL && temp->getP() != to_shoot)
+            {
+               if(temp->getT() == "FootSoldier")
+               {
+                  temp->act(l,board);
+               }
+            }
+         }
+      }
    }

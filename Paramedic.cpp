@@ -2,47 +2,48 @@
 #include "Soldier.hpp"
 // using namespace WarGame;
 
-   //  void Paramedic:: shoot(Soldier s){
-        
-   //  }
    void Paramedic:: act(pair<int,int> l, std::vector<std::vector<Soldier*>>& board)
    {
       int to_heal;
-      if(board[l.first][l.second]->player == 1)
+      if(board[l.first][l.second]->getP() == 1)
       {
          to_heal = 1;
       }else{
          to_heal = 2;
       }
-      for(int i = 0; i < board.size(); i++)
+      int x = l.first;
+      int y = l.second;
+      for(int i = x - 1; i < x + 1; i++)
       {
-         for(int j = 0; j < board[i].size(); j++)
+         for(int j = y - 1; j < y + 1; j++)
          {
-            if(board[i][j] != NULL && board[i][j]->player == to_heal)
+            if(i < 0 || j < 0 || i > board.size() || j > board[0].size() || i == x || j == y) continue;
+            Soldier* temp = board[i][j];
+            if(temp != NULL && temp->getP() == to_heal)
             {
-               if(board[i][j]->tag == "Foot")
+               if(temp->getT() == "Foot")
                {
-                  board[i][j]->healthPoints = 100;
+                  temp->setHP(100);
                }
-               if(board[i][j]->tag == "FootCommandor")
+               if(temp->getT() == "FootCommandor")
                {
-                  board[i][j]->healthPoints = 150;
+                  temp->setHP(150);
                }
-               if(board[i][j]->tag == "Sniper")
+               if(temp->getT() == "Sniper")
                {
-                  board[i][j]->healthPoints = 100; 
+                  temp->setHP(100); 
                }
-               if(board[i][j]->tag == "SniperCommandor")
+               if(temp->getT() == "SniperCommandor")
                {
-                  board[i][j]->healthPoints = 120;
+                  temp->setHP(120);
                }
-               if(board[i][j]->tag == "Paramedic")
+               if(temp->getT() == "Paramedic")
                {
-                  board[i][j]->healthPoints = 100;
+                  temp->setHP(100);
                }
-               if(board[i][j]->tag == "ParamedicCommandor")
+               if(temp->getT() == "ParamedicCommandor")
                {
-                  board[i][j]->healthPoints = 200;
+                  temp->setHP(200);
                }
             }
          }
