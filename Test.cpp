@@ -191,43 +191,33 @@ TEST_CASE("Sniper commander 3") {
     CHECK_THROWS(board.move(2, {0,0}, Board::MoveDIR::Up));
 }
 
-
-
-TEST_CASE("Game") {
-    Board board (6,6);
+TEST_CASE("Foot commander 2") {
+    Board board (8,1);
 
     CHECK(!board.has_soldiers(1));
     CHECK(!board.has_soldiers(2));
-    board[{0,0}] = new FootSoldier(1);
-    board[{0,1}] = new Sniper(1);
-    board[{1,1}] = new FootCommander(1);
-    board[{1,2}] = new Paramedic(1);
+    board[{0,0}] = new FootCommander(1);
     CHECK(board.has_soldiers(1));
-    CHECK(!board.has_soldiers(2));
-    board[{6,6}] = new FootSoldier(2);
-    board[{6,6}] = new FootSoldier(2);
+    CHECK(!board.has_soldiers(1));
+    board[{7,0}] = new FootCommander(2);
     CHECK(board.has_soldiers(2));
     CHECK(!board.has_soldiers(2));
 
-    board.move(1, {0,0}, Board::MoveDIR::Up);  // move to {1,0} and shoot; damage 10
+    board.move(1, {0,0}, Board::MoveDIR::Up);  // move to {1,0} and shoot; damage 20
     CHECK(!board.has_soldiers(2));
-    board.move(1, {1,0}, Board::MoveDIR::Down);  // move back to {0,0} and shoot; damage 10 
+    board.move(1, {1,0}, Board::MoveDIR::Down);  // move back to {0,0} and shoot; damage 20 
     CHECK(!board.has_soldiers(2));
-    board.move(1, {0,0}, Board::MoveDIR::Up);  // move to {1,0} and shoot; damage 10
+    board.move(1, {0,0}, Board::MoveDIR::Up);  // move to {1,0} and shoot; damage 20
     CHECK(!board.has_soldiers(2));
-    board.move(1, {1,0}, Board::MoveDIR::Down);  // move back to {0,0} and shoot; damage 10 
+    board.move(1, {1,0}, Board::MoveDIR::Down);  // move back to {0,0} and shoot; damage 20 
     CHECK(!board.has_soldiers(2));
-    board.move(1, {0,0}, Board::MoveDIR::Up);  // move to {1,0} and shoot; damage 10
+    board.move(1, {0,0}, Board::MoveDIR::Up);  // move to {1,0} and shoot; damage 20 
     CHECK(!board.has_soldiers(2));
-    board.move(1, {1,0}, Board::MoveDIR::Down);  // move back to {0,0} and shoot; damage 10 
+    board.move(1, {1,0}, Board::MoveDIR::Down);  // move back to {0,0} and shoot; damage 20 
     CHECK(!board.has_soldiers(2));
-    board.move(1, {0,0}, Board::MoveDIR::Up);  // move to {1,0} and shoot; damage 10
+    board.move(1, {0,0}, Board::MoveDIR::Up);  // move to {1,0} and shoot; damage 20
     CHECK(!board.has_soldiers(2));
-    board.move(1, {1,0}, Board::MoveDIR::Down);  // move back to {0,0} and shoot; damage 10 
-    CHECK(!board.has_soldiers(2));
-    board.move(1, {0,0}, Board::MoveDIR::Up);  // move to {1,0} and shoot; damage 10
-    CHECK(!board.has_soldiers(2));
-    board.move(1, {1,0}, Board::MoveDIR::Down);  // move back to {0,0} and shoot; damage 10 
+    board.move(1, {1,0}, Board::MoveDIR::Down);  // move back to {0,0} and shoot; damage 20 
     CHECK(!board.has_soldiers(2));
     CHECK(board.has_soldiers(1));
     CHECK_THROWS(board.move(2, {1,0}, Board::MoveDIR::Up));
