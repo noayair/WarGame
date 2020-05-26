@@ -16,6 +16,6 @@ public:
   Soldier(int p, int d , int h, pair<int,int> l, string t): player(p), damage(d), healthPoints(h), location(l), tag(t) {}
   // virtual void shoot(Soldier s);
   virtual void act(pair<int,int> l,std::vector<std::vector<Soldier*>>& board){}
-  virtual ~Soldier(){}
+  // virtual ~Soldier(){}
 };
 // }
