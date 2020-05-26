@@ -1,3 +1,13 @@
+/**
+ * Header file for the board of the war game.
+ * 
+ * You can copy this file to a new file called Board.hpp, and extend it as you like.
+ * 
+ * @author Oz Levi 
+ * @author Erel Segal-Halevi
+ * @since  2020-05
+ */
+
 #include <string>
 #include <vector>
 #include <stdexcept>
@@ -9,7 +19,6 @@ namespace WarGame {
 class Board {
   private:
     std::vector<std::vector<Soldier*>> board;
-    static int num;
   public:
     enum MoveDIR { Up, Down, Right, Left };
     
@@ -37,6 +46,11 @@ class Board {
 
     // returns true iff the board contains one or more soldiers of the given player.
     bool has_soldiers(uint player_number) const;
+    
+    ~Board()
+    {
+      board.clear();
+    }
 };
 
 }

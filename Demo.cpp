@@ -1,6 +1,6 @@
+ 
 /**
   Demo for the war-game exercise.
-
   @author Oz Levi
   @since  2020-05
 **/
