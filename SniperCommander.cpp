@@ -1,6 +1,6 @@
 #include "SniperCommander.hpp"
 #include "Soldier.hpp"
-using namespace WarGame;
+// using namespace WarGame;
 
    //  void SniperCommander:: shoot(Soldier s){
         

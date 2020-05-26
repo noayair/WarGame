@@ -1,6 +1,6 @@
 #pragma once
 #include "Soldier.hpp"
-namespace WarGame{
+// namespace WarGame{
 class Paramedic: public Soldier{
   public:
   Paramedic(int p): Soldier(p, 0, 100, {0,0}, "Paramedic") {}
@@ -9,4 +9,4 @@ class Paramedic: public Soldier{
   void act(pair<int,int> l, std::vector<std::vector<Soldier*>>& board) override;
   
 };
-}
+// }

@@ -3,7 +3,7 @@
 #include <iostream>
 #include <vector>
 #include <cmath>
-using namespace WarGame;
+// using namespace WarGame;
 
   // void FootSoldier:: shoot(Soldier s){
         

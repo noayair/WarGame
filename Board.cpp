@@ -3,10 +3,10 @@
 
 // using namespace WarGame;
 int WarGame::Board::num=1;
-     WarGame::Soldier*&  WarGame::Board::operator[](std::pair<int,int> location){
+     Soldier*&  WarGame::Board::operator[](std::pair<int,int> location){
          return board[0][0];
     }
-    WarGame::Soldier* WarGame::Board ::operator[](std::pair<int,int> location) const{
+    Soldier* WarGame::Board ::operator[](std::pair<int,int> location) const{
         Soldier* s;
          return s;
     }

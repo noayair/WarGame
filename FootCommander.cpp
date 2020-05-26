@@ -1,10 +1,10 @@
 #include "FootCommander.hpp"
-using namespace WarGame;
+// using namespace WarGame;
 
    //  void  FootCommander:: shoot(Soldier s){
         
    //  }
-   void act(pair<int,int> l, std::vector<std::vector<Soldier*>>& board)
+   void FootCommander:: act(pair<int,int> l, std::vector<std::vector<Soldier*>>& board)
    {
       // int to_shoot;
       // if(board[l.first][l.second]->player == 1)

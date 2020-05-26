@@ -5,14 +5,9 @@
 #include "FootCommander.hpp"
 #include "SniperCommander.hpp"
 #include "Board.hpp"
+#include "Paramedic.hpp"
+#include "ParamedicCommander.hpp"
 using namespace WarGame;
-
-// TEST_CASE("Test"){
-//     WarGame::DemoGame demoGame;
-//     for (int i=0; i<101; i++) {
-//         CHECK(demoGame.play()==0);
-//     }
-// }
 
 TEST_CASE("Foot soldiers") {
     Board board (8,1);
@@ -190,6 +185,49 @@ TEST_CASE("Sniper commander 3") {
     CHECK(board.has_soldiers(2));
     board.move(1, {1,0}, Board::MoveDIR::Down);  // move back to {0,0} and shoot; damage 100
 
+    CHECK(!board.has_soldiers(2));
+    CHECK(board.has_soldiers(1));
+    CHECK_THROWS(board.move(2, {1,0}, Board::MoveDIR::Up));
+    CHECK_THROWS(board.move(2, {0,0}, Board::MoveDIR::Up));
+}
+
+
+
+TEST_CASE("Game") {
+    Board board (6,6);
+
+    CHECK(!board.has_soldiers(1));
+    CHECK(!board.has_soldiers(2));
+    board[{0,0}] = new FootSoldier(1);
+    board[{0,1}] = new Sniper(1);
+    board[{1,1}] = new FootCommander(1);
+    board[{1,2}] = new Paramedic(1);
+    CHECK(board.has_soldiers(1));
+    CHECK(!board.has_soldiers(2));
+    board[{6,6}] = new FootSoldier(2);
+    board[{6,6}] = new FootSoldier(2);
+    CHECK(board.has_soldiers(2));
+    CHECK(!board.has_soldiers(2));
+
+    board.move(1, {0,0}, Board::MoveDIR::Up);  // move to {1,0} and shoot; damage 10
+    CHECK(!board.has_soldiers(2));
+    board.move(1, {1,0}, Board::MoveDIR::Down);  // move back to {0,0} and shoot; damage 10 
+    CHECK(!board.has_soldiers(2));
+    board.move(1, {0,0}, Board::MoveDIR::Up);  // move to {1,0} and shoot; damage 10
+    CHECK(!board.has_soldiers(2));
+    board.move(1, {1,0}, Board::MoveDIR::Down);  // move back to {0,0} and shoot; damage 10 
+    CHECK(!board.has_soldiers(2));
+    board.move(1, {0,0}, Board::MoveDIR::Up);  // move to {1,0} and shoot; damage 10
+    CHECK(!board.has_soldiers(2));
+    board.move(1, {1,0}, Board::MoveDIR::Down);  // move back to {0,0} and shoot; damage 10 
+    CHECK(!board.has_soldiers(2));
+    board.move(1, {0,0}, Board::MoveDIR::Up);  // move to {1,0} and shoot; damage 10
+    CHECK(!board.has_soldiers(2));
+    board.move(1, {1,0}, Board::MoveDIR::Down);  // move back to {0,0} and shoot; damage 10 
+    CHECK(!board.has_soldiers(2));
+    board.move(1, {0,0}, Board::MoveDIR::Up);  // move to {1,0} and shoot; damage 10
+    CHECK(!board.has_soldiers(2));
+    board.move(1, {1,0}, Board::MoveDIR::Down);  // move back to {0,0} and shoot; damage 10 
     CHECK(!board.has_soldiers(2));
     CHECK(board.has_soldiers(1));
     CHECK_THROWS(board.move(2, {1,0}, Board::MoveDIR::Up));
