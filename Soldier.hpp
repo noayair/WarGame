@@ -3,7 +3,6 @@
 #include <vector>
 #include <stdexcept>
 using namespace std;
-// namespace WarGame {
 class Soldier {
   int healthPoints;
   int damage;
@@ -23,4 +22,3 @@ public:
   string getT(){return this->tag;}
   virtual ~Soldier(){}
 };
-// }

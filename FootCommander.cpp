@@ -1,9 +1,5 @@
 #include "FootCommander.hpp"
-// using namespace WarGame;
 
-   //  void  FootCommander:: shoot(Soldier s){
-        
-   //  }
    void FootCommander:: act(pair<int,int> l, std::vector<std::vector<Soldier*>>& board)
    {
       FootSoldier:: act(l , board);
@@ -21,14 +17,14 @@
       }
       for(int i = 0; i < board.size(); i++)
       {
-         for(int j = 0; j < board[0].size(); j++)
+         for(int j = 0; j < board[i].size(); j++)
          {
             Soldier* temp = board[i][j];
             if(temp != NULL && temp->getP() != to_shoot)
             {
-               if(temp->getT() == "FootSoldier")
+               if(temp->getT() == "Foot")
                {
-                  temp->act(l,board);
+                  temp->act({i,j},board);
                }
             }
          }

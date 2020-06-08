@@ -1,6 +1,4 @@
 #include "ParamedicCommander.hpp"
-// #include "Soldier.hpp"
-// using namespace WarGame;
 
   void ParamedicCommander:: act(pair<int,int> l, std::vector<std::vector<Soldier*>>& board)
   {
@@ -26,7 +24,7 @@
             {
                if(temp->getT() == "Paramedic")
                {
-                  temp->act(l,board);
+                  temp->act({i,j},board);
                }
             }
          }

@@ -12,13 +12,10 @@ namespace WarGame{
     void WarGame::Board ::move(uint player_number, std::pair<int,int> source, MoveDIR direction){
         int x = source.first;
         int y = source.second;
-        // if(source == nullptr) throw ("null");
         if(x >= board.size() || x < 0 || y >= board[x].size() || y < 0) __throw_out_of_range("out of range");
-        // if(board[source.first][source.second] == nullptr) throw ("Error- nullptr");
         Soldier* temp = board[x][y];
         if(temp == nullptr) throw("Error-nullptr");
         if(temp->getP() != player_number) throw("this is not the right player");
-        cout<<"ok"<<endl;
         switch ((direction))
         {
         case Up:
@@ -57,13 +54,7 @@ namespace WarGame{
             throw("Error");
             break;
         }
-        cout<<"end switch"<<endl;
         temp->act({x,y}, board);
-        // for (int i=0; i < board.size(); i++){
-        //     for (int j=0; j < board[0].size(); j++){
-        //         if (board[i][j] != nullptr && board[i][j]->getHP() <=0) board[i][j] = nullptr;
-        //     }
-        // }
     }
     bool WarGame::Board :: has_soldiers(uint player_number) const
     {

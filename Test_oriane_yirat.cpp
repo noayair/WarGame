@@ -89,34 +89,34 @@ TEST_CASE("Check Adding player to board 2"){
             CHECK(typeid(*p[{4,0}]) == typeid(Sniper));
 }
 
-// TEST_CASE("Move function - no Commander"){
-//     WarGame::Board p = fillBoard();
-//     p.move(1,{0,0},WarGame::Board::Up);
-//             CHECK(p[{0,0}]== nullptr);
-//             CHECK(typeid(*p[{1,0}])==typeid(FootSoldier));
+TEST_CASE("Move function - no Commander"){
+    WarGame::Board p = fillBoard();
+    p.move(1,{0,0},WarGame::Board::Up);
+            CHECK(p[{0,0}]== nullptr);
+            CHECK(typeid(*p[{1,0}])==typeid(FootSoldier));
 
-//     p.move(1,{0,1},WarGame::Board::Right);
-//             CHECK(p[{0,1}]==nullptr);
-//             CHECK(typeid(*p[{0,2}])== typeid(Sniper));
+    p.move(1,{0,1},WarGame::Board::Right);
+            CHECK(p[{0,1}]==nullptr);
+            CHECK(typeid(*p[{0,2}])== typeid(Sniper));
 
-//     p.move(1,{5,1},WarGame::Board::Down);
-//             CHECK(p[{5,1}]==nullptr);
-//             CHECK(typeid(*p[{4,1}])== typeid(Paramedic));
+    p.move(1,{5,1},WarGame::Board::Down);
+            CHECK(p[{5,1}]==nullptr);
+            CHECK(typeid(*p[{4,1}])== typeid(Paramedic));
 
 
-//     p.move(2,{3,0},WarGame::Board::Right);
-//             CHECK(p[{3,0}]== nullptr);
-//             CHECK(typeid(*p[{3,1}])==typeid(Sniper));
+    p.move(2,{3,0},WarGame::Board::Right);
+            CHECK(p[{3,0}]== nullptr);
+            CHECK(typeid(*p[{3,1}])==typeid(Sniper));
 
-//     p.move(2,{3,3},WarGame::Board::Up);
-//             CHECK(p[{3,3}]== nullptr);
-//             CHECK(typeid(*p[{4,3}])==typeid(FootSoldier));
+    p.move(2,{3,3},WarGame::Board::Up);
+            CHECK(p[{3,3}]== nullptr);
+            CHECK(typeid(*p[{4,3}])==typeid(FootSoldier));
 
-//     p.move(2,{1,3},WarGame::Board::Right);
-//             CHECK(p[{1,3}]== nullptr);
-//             CHECK(typeid(*p[{1,4}])==typeid(Paramedic));
+    p.move(2,{1,3},WarGame::Board::Right);
+            CHECK(p[{1,3}]== nullptr);
+            CHECK(typeid(*p[{1,4}])==typeid(Paramedic));
 
-// }
+}
 
 TEST_CASE("Move Function - Commander"){
     WarGame::Board p = fillCommBoard();
@@ -178,19 +178,19 @@ TEST_CASE("Exceptions") {
 
 TEST_CASE("Check Moves"){
     WarGame::Board p = fillBoard();
-            // CHECK_NOTHROW(p.move(1,{0,0},WarGame::Board::Up));
-            // CHECK_NOTHROW(p.move(1,{0,1},WarGame::Board::Left));
-            // CHECK_NOTHROW(p.move(1,{2,1},WarGame::Board::Down));
-            // CHECK_NOTHROW(p.move(2,{3,0},WarGame::Board::Down));
-            // CHECK_NOTHROW(p.move(2,{3,3},WarGame::Board::Right));
-            // CHECK_NOTHROW(p.move(2,{3,5},WarGame::Board::Down));
-            // CHECK_NOTHROW(p.move(2,{4,0},WarGame::Board::Down));
-            // CHECK_NOTHROW(p.move(1,{4,5},WarGame::Board::Up));
-            // CHECK_NOTHROW(p.move(1,{5,0},WarGame::Board::Down));
-            // CHECK_NOTHROW(p.move(1,{5,1},WarGame::Board::Right));
-            // CHECK_NOTHROW(p.move(1,{5,2},WarGame::Board::Right));
-            // CHECK_NOTHROW(p.move(1,{5,5},WarGame::Board::Left));
-            // CHECK_NOTHROW(p.move(1,{4,0},WarGame::Board::Right));
+            CHECK_NOTHROW(p.move(1,{0,0},WarGame::Board::Up));
+            CHECK_NOTHROW(p.move(1,{0,1},WarGame::Board::Left));
+            CHECK_NOTHROW(p.move(1,{2,1},WarGame::Board::Down));
+            CHECK_NOTHROW(p.move(2,{3,0},WarGame::Board::Down));
+            CHECK_NOTHROW(p.move(2,{3,3},WarGame::Board::Right));
+            CHECK_NOTHROW(p.move(2,{3,5},WarGame::Board::Down));
+            CHECK_NOTHROW(p.move(2,{4,0},WarGame::Board::Down));
+            CHECK_NOTHROW(p.move(1,{4,5},WarGame::Board::Up));
+            CHECK_NOTHROW(p.move(1,{5,0},WarGame::Board::Down));
+            CHECK_NOTHROW(p.move(1,{5,1},WarGame::Board::Right));
+            CHECK_NOTHROW(p.move(1,{5,2},WarGame::Board::Right));
+            CHECK_NOTHROW(p.move(1,{5,5},WarGame::Board::Left));
+            CHECK_NOTHROW(p.move(1,{4,0},WarGame::Board::Right));
 }
 TEST_CASE("Extra"){
     WarGame::Board b (4,4);
@@ -202,13 +202,13 @@ TEST_CASE("Extra"){
     b[{3,3}] = new Sniper(2);
             CHECK(b.has_soldiers(1));
             CHECK(b.has_soldiers(2));
-    // b.move(1,{0,0},WarGame::Board::Up);
+    b.move(1,{0,0},WarGame::Board::Up);
             CHECK(b.has_soldiers(1));
             CHECK(b.has_soldiers(2));
-//     b.move(2,{3,3},WarGame::Board::Down);
+    b.move(2,{3,3},WarGame::Board::Down);
             CHECK(b.has_soldiers(1));
             CHECK(b.has_soldiers(2));
-//     b.move(2,{2,3},WarGame::Board::Down);
+    b.move(2,{2,3},WarGame::Board::Down);
             CHECK(b.has_soldiers(2));
             CHECK(!b.has_soldiers(1));
 
