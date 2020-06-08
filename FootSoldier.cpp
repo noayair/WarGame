@@ -7,23 +7,30 @@
 
   void FootSoldier:: act(pair<int,int> l , std::vector<std::vector<Soldier*>>& board)
   {
+    cout<< l.first<<l.second<<endl;
     pair<int,int> target = find_closest(l , board);
-    int points = board[target.first][target.second]->getHP();
-    int damage = board[l.first][l.second]->getD();
-    board[target.first][target.second]->setHP(points - damage);
-    if(board[target.first][target.second]->getHP() <= 0)
+    if(target.first != -1 && target.second != -1)
     {
-      delete board[target.first][target.second];
-      board[target.first][target.second] = NULL;
+      cout<<target.first<< target.second << endl;
+      int points = board[target.first][target.second]->getHP();
+      int damage = board[l.first][l.second]->getD();
+      board[target.first][target.second]->setHP(points - damage);
+      cout<<"if"<<endl;
+      if(board[target.first][target.second]->getHP() <= 0)
+      {
+        delete board[target.first][target.second];
+        cout<<"delete"<<endl;
+        board[target.first][target.second] = NULL;
+      }
     }
   }
 
   pair<int,int> FootSoldier:: find_closest(pair<int,int> l, std::vector<std::vector<Soldier*>>& board)
   {
-    pair<int,int> ans;
-    int to_shoot;
+    pair<int,int> ans = {-1,-1};
+    int to_shoot = -1;
     double min = board.size()+board[0].size();
-    double dist;
+    double dist = 0;
     if(board[l.first][l.second] != nullptr && board[l.first][l.second]->getP() == 1)
     {
       to_shoot = 2;
@@ -34,10 +41,10 @@
     {
       for(int j = 0; j < board[0].size(); j++)
       {
-        if(board[i][j] != NULL && board[i][j]->getP() == to_shoot)
+        if(board[i][j] != nullptr && board[i][j]->getP() == to_shoot)
         {
-          // dist = sqrt(pow(l.first-i, 2) + pow(l.second-j , 2));
-          dist = abs(i-l.first)+abs(j-l.second);
+          dist = sqrt(pow(l.first-i, 2) + pow(l.second-j , 2));
+          // dist = abs(i-l.first)+abs(j-l.second);
         }
         if(dist < min)
         {

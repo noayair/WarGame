@@ -21,7 +21,7 @@
       }
       for(int i = 0; i < board.size(); i++)
       {
-         for(int j = 0; j < board[i].size(); j++)
+         for(int j = 0; j < board[0].size(); j++)
          {
             Soldier* temp = board[i][j];
             if(temp != NULL && temp->getP() != to_shoot)

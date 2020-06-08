@@ -17,7 +17,7 @@
       {
          for(int j = y - 1; j < y + 1; j++)
          {
-            if(i < 0 || j < 0 || i > board.size() || j > board[0].size() || i == x || j == y) continue;
+            if(i < 0 || j < 0 || i > board[0].size() || j > board.size() || i == x || j == y) continue;
             Soldier* temp = board[i][j];
             if(temp != NULL && temp->getP() == to_heal)
             {

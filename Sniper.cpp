@@ -11,7 +11,7 @@
       if(board[target.first][target.second]->getHP() <= 0)
       {
          delete board[target.first][target.second];
-         board[target.first][target.second] = NULL;
+         board[target.first][target.second] = nullptr;
       }
    }
 
@@ -19,7 +19,7 @@
    {
       pair<int,int> ans;
       int to_shoot;
-      double strongest = 1000;
+      double strongest = -1;
       double temp;
       if(board[l.first][l.second]->getP() == 1)
       {
